@@ -1,4 +1,4 @@
-import testResolver from './test.resolver'
+import clientResolver from './client.resolver'
 import UserResolver from './user.resolver'
 
-export default[UserResolver, testResolver]
+export default[UserResolver, clientResolver]

@@ -1,8 +1,8 @@
 import UserSchema from './user.schema'
 import { SchemaLink } from 'apollo-link-schema'
-import testSchema from './test.schema'
+import ClientSchema from './client.schema'
 
 export default [
     UserSchema,
-    testSchema
+    ClientSchema
 ]
