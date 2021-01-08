@@ -10,7 +10,7 @@ import { GraphQLSchema } from 'graphql';
 
 
 class KoaServer extends Koa {
-  private port: number;
+  private port: String|number;
   readonly app: Koa;
 
   constructor(port: number) {
@@ -30,11 +30,14 @@ class KoaServer extends Koa {
   }
 
   public startServer(): void {
-    this.listen(this.port, async () => {
+    const processPort  = process.env.PORT || this.port
+
+    this.listen(processPort, async () => {
         console.log(`server running on port ${this.port}`);
       })
       .on('error', (err) => console.log(err));
   }
 }
 
-export const app = new KoaServer(8181);
+
+export const app = new KoaServer(5000);
