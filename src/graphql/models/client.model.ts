@@ -6,10 +6,14 @@ interface Iclient extends mongoose.Document {
     address: String,
     email: String,
     phoneNumber: String,
-    logo: String
+    logo: String,
+    idInvoice:[{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'InvoiceFactureKoa'
+    }]
 }
 
-const testShema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
     name: {
         type: String,
         required : true
@@ -30,8 +34,13 @@ const testShema = new mongoose.Schema({
         type: String,
         required : true
     },
+    idInvoice: [{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'InvoiceFactureKoa',
+        default: []
+    }]
 })
 
-const Client = mongoose.model<Iclient>('ClientFactureKoa', testShema);
+const Client = mongoose.model<Iclient>('ClientsFactureKoa', clientSchema);
 
 export default Client

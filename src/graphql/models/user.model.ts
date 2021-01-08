@@ -6,7 +6,7 @@ interface Iuser extends mongoose.Document { // à définir a part typé pour typ
     lastName: String,
 }
 
-const userShema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required : true
@@ -21,6 +21,6 @@ const userShema = new mongoose.Schema({
     },
 })
 
-const User = mongoose.model<Iuser>('Client', userShema);
+const User = mongoose.model<Iuser>('UserFactureKoa', userSchema);
 
 export default User

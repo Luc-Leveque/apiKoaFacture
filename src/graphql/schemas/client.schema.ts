@@ -13,6 +13,7 @@ export default gql`
     extend type Query {
         getClients:[Client]
         getClientById(id:ID!):Client
+        clientInvoice(id:ID!):[Invoice]
     }
     extend type Mutation {
         createClient(

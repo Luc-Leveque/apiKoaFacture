@@ -1,5 +1,6 @@
 import Client from "../models/client.model";
 import Koa from "koa"
+import Invoice from "../models/invoice.model";
 
 export default {
     Query: {
@@ -16,7 +17,12 @@ export default {
             } catch (error) {
                 throw new Error(error)
             }
-        }
+        },
+        clientInvoice: async ( parents :any ,args :any) =>  {
+            const client = await Client.findById(args.id)
+            const invoiceList = await Invoice.find( {_id: client?.idInvoice})
+            return invoiceList 
+        },
     },
     Mutation: {
         createClient: async (parents:any ,args: any) => {
@@ -27,7 +33,8 @@ export default {
                     email:args.email,
                     address:args.address,
                     phoneNumber: args.phoneNumber,
-                    logo : args.logo
+                    logo : args.logo,
+                    idInvoice: []
                 })
             } catch (error) {
                 throw new Error(error)
