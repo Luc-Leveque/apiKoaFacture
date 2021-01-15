@@ -18,6 +18,10 @@ const clientSchema = new mongoose.Schema({
         type: String,
         required : true
     },
+    address: {
+        type: String,
+        required : true
+    },
     siret: {
         type: String,
         required : true
