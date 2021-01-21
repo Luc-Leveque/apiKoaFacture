@@ -23,6 +23,7 @@ export default gql`
             phoneNumber: String!,
         ):Client,
         updateClient(
+            id : ID!,
             name: String!,
             siret: String!,
             address: String!,

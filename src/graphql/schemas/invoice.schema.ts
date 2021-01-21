@@ -19,6 +19,7 @@ export default gql`
             pdf: String
         ):Invoice,
         updateInvoice(
+            id : ID!,
             description: String!
             status: String!
             pdf: String
