@@ -33,7 +33,6 @@ export default {
                     email:args.email,
                     address:args.address,
                     phoneNumber: args.phoneNumber,
-                    logo : args.logo,
                     idInvoice: []
                 })
             } catch (error) {
@@ -50,7 +49,6 @@ export default {
                     email:args.email,
                     address:args.address,
                     phoneNumber: args.phoneNumber,
-                    logo : args.logo
                 })
             } catch (error) {
                 throw new Error(error)

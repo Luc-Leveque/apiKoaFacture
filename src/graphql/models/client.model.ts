@@ -6,7 +6,6 @@ interface Iclient extends mongoose.Document {
     address: String,
     email: String,
     phoneNumber: String,
-    logo: String,
     idInvoice:[{ 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'InvoiceFactureKoa'
@@ -31,10 +30,6 @@ const clientSchema = new mongoose.Schema({
         required : true
     },
     phoneNumber: {
-        type: String,
-        required : true
-    },
-    logo: {
         type: String,
         required : true
     },

@@ -8,7 +8,6 @@ export default gql`
         address: String!
         email: String!
         phoneNumber: String!
-        logo: String!
     }
     extend type Query {
         getClients:[Client]
@@ -22,7 +21,6 @@ export default gql`
             address: String!,
             email: String!,
             phoneNumber: String!,
-            logo: String!
         ):Client,
         updateClient(
             name: String!,
@@ -30,7 +28,6 @@ export default gql`
             address: String!,
             email: String!,
             phoneNumber: String!,
-            logo: String!
         ):Client,
         deleteClient(
             id : ID!
