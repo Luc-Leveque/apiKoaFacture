@@ -23,8 +23,9 @@ export default {
         createInvoice: async (parents:any ,args: any) => {
             try {
                 let invoice = new Invoice({
-                    description:args.description,
-                    status:args.status
+                    products:args.data,
+                    status:args.status,
+                    date:args.date
                 })
                 await Client.findById(args.idClient).populate('ClientsFactureKoa').
                 exec(function (err, client) {
@@ -41,11 +42,11 @@ export default {
         updateInvoice: async (parents:any , args: any) => {
             try {
                 return Invoice.findByIdAndUpdate(
-                args.id,
+                args.idInvoice,
                 {
-                    description:args.description,
+                    products:args.data,
                     status:args.status,
-                    pdfLink:args.pdfLink
+                    date:args.date
                 })
             } catch (error) {
                 throw new Error(error)

@@ -1,11 +1,21 @@
 import { gql } from 'apollo-server-koa';
 
 export default gql`
+    type Product {
+        title: String
+        qte: Int
+        price: Int
+    }
     type Invoice {
         id: ID!
-        description: String!
         status: String!
-        pdf: String
+        products: [Product!]!
+        date : String!
+    }
+    input InvoiceInput{
+        title: String!
+        qte: Int!,
+        price: Int!
     }
     extend type Query {
         getInvoices:[Invoice]
@@ -14,15 +24,15 @@ export default gql`
     extend type Mutation {
         createInvoice(
             idClient: ID!
-            description: String!
             status: String!
-            pdf: String
+            data: [InvoiceInput!]!
+            date : String!
         ):Invoice,
         updateInvoice(
-            id : ID!,
-            description: String!
+            idInvoice: ID!
             status: String!
-            pdf: String
+            data: [InvoiceInput!]!
+            date : String!
         ):Invoice,
         deleteInvoice(
             id : ID!

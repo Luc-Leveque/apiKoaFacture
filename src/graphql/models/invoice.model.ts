@@ -1,22 +1,38 @@
 import mongoose from "mongoose"
 
 interface Invoice extends mongoose.Document { 
-    description: String,
     status: String,
-    pdfLink: String
+    date: String,
+    products: [{
+        title: String,
+        qte: String,
+        price: String
+    }]
 }
 
-const invoiceSchema = new mongoose.Schema({
-    description: {
-        type: String,
-        required : true
+const ProductSchema = new mongoose.Schema({ 
+    title: {
+        type: String
     },
+    qte: {
+        type: Number
+    },
+    price: {
+        type: Number
+    }
+});
+
+const invoiceSchema = new mongoose.Schema({
     status: {
         type: String,
         required : true
     },
-    pdfLink: {
+    date: {
         type: String,
+        required : true
+    },
+    products: {
+        type: [ProductSchema]
     }
 })
 
