@@ -9,6 +9,7 @@ export default gql`
     type Invoice {
         id: ID!
         status: String!
+        description: String!
         products: [Product!]!
         date : String!
     }
@@ -25,12 +26,14 @@ export default gql`
         createInvoice(
             idClient: ID!
             status: String!
+            description: String!
             data: [InvoiceInput!]!
             date : String!
         ):Invoice,
         updateInvoice(
             idInvoice: ID!
             status: String!
+            description: String!
             data: [InvoiceInput!]!
             date : String!
         ):Invoice,

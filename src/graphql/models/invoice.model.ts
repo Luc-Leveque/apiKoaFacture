@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 
-interface Invoice extends mongoose.Document { 
+interface Invoice extends mongoose.Document {
+    description: String,
     status: String,
     date: String,
     products: [{
@@ -10,7 +11,10 @@ interface Invoice extends mongoose.Document {
     }]
 }
 
-const ProductSchema = new mongoose.Schema({ 
+const ProductSchema = new mongoose.Schema({
+    description: {
+        type: String
+    },
     title: {
         type: String
     },
@@ -23,6 +27,10 @@ const ProductSchema = new mongoose.Schema({
 });
 
 const invoiceSchema = new mongoose.Schema({
+    description: {
+        type: String,
+        required : true
+    },
     status: {
         type: String,
         required : true

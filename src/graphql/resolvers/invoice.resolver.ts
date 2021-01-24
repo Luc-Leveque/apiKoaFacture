@@ -23,6 +23,7 @@ export default {
         createInvoice: async (parents:any ,args: any) => {
             try {
                 let invoice = new Invoice({
+                    description:args.description,
                     products:args.data,
                     status:args.status,
                     date:args.date
@@ -44,6 +45,7 @@ export default {
                 return Invoice.findByIdAndUpdate(
                 args.idInvoice,
                 {
+                    description:args.description,
                     products:args.data,
                     status:args.status,
                     date:args.date
