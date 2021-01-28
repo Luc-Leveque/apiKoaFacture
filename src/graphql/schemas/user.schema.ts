@@ -6,11 +6,33 @@ export default gql`
         firstName: String!
         lastName: String!
         email: String!
+        societe: String!
+        codePostal: String!
+        ville: String!
+        adresse: String!
     }
     type Query {
         getUsers:[User]
     }
     type Mutation {
-        createUser(firstName: String!, lastName:String!,email:String!):User,
+        createUser(
+            firstName: String!,
+            lastName:String!,
+            email:String!,
+            societe: String!,
+            codePostal:String!,
+            ville:String!,
+            adresse:String!
+        ):User,
+        updateUser(
+            id : ID!,
+            firstName: String!,
+            lastName:String!,
+            email:String!,
+            societe: String!,
+            codePostal:String!,
+            ville:String!,
+            adresse:String!
+        ):User,
     }
 `

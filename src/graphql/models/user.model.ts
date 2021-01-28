@@ -4,6 +4,10 @@ interface Iuser extends mongoose.Document { // à définir a part typé pour typ
     email: string,
     firstName: String,
     lastName: String,
+    societe: String,
+    codePostal: String,
+    ville: String,
+    adresse: String
 }
 
 const userSchema = new mongoose.Schema({
@@ -16,6 +20,22 @@ const userSchema = new mongoose.Schema({
         required : true
     },
     email: {
+        type: String,
+        required : true
+    },
+    societe: {
+        type: String,
+        required : true
+    },
+    codePostal: {
+        type: String,
+        required : true
+    },
+    ville: {
+        type: String,
+        required : true
+    },
+    adresse: {
         type: String,
         required : true
     },

@@ -19,11 +19,32 @@ export default {
                     firstName:args.firstName,
                     lastName:args.lastName,
                     email:args.email,
+                    societe:args.societe,
+                    codePostal:args.codePostal,
+                    ville:args.ville,
+                    adresse:args.adresse,
                 })
             } catch (error) {
                 throw new Error(error)
             }
-        }
+        },
+        updateUser: async (parents:any , args: any) => {
+            try {
+                return User.findByIdAndUpdate(
+                args.id,
+                {
+                    firstName:args.firstName,
+                    lastName:args.lastName,
+                    email:args.email,
+                    societe:args.societe,
+                    codePostal:args.codePostal,
+                    ville:args.ville,
+                    adresse:args.adresse,
+                })
+            } catch (error) {
+                throw new Error(error)
+            }
+        },
     }
 }
 
