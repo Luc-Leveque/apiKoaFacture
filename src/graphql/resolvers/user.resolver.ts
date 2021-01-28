@@ -4,9 +4,9 @@ import User from "../models/user.model";
 
 export default {
     Query: {
-        getUsers: async () => {
+        getUser: async (parents:any, args: any, ctx:Koa.Context) => {
             try {
-                return await User.find()
+                return await User.findById(args.id)
             } catch (error) {
                 throw new Error(error)
             }

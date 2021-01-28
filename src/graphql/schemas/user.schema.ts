@@ -12,7 +12,7 @@ export default gql`
         adresse: String!
     }
     type Query {
-        getUsers:[User]
+        getUser(id:ID!):User
     }
     type Mutation {
         createUser(
