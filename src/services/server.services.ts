@@ -26,6 +26,10 @@ class KoaServer extends Koa {
       KoaCors({
         origin: '*',
         credentials: true,
+        exposeHeaders: ['*'],
+        maxAge: 5,
+        allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+        allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'access-token', 'X-Requested-With', 'Origin'],
       })
     );
   }
