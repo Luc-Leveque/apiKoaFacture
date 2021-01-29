@@ -25,6 +25,7 @@ class KoaServer extends Koa {
     this.use(
       KoaCors({
         origin: '*',
+        credentials: true,
       })
     );
   }
